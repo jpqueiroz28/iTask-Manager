@@ -1,25 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iTask Manager</title>
     <link rel="stylesheet" href="style.css">
-    <script src="app.js"></script>
 </head>
 <body>
+    
     <h1> iTask Manager</h1>
     <div class="formulario">
         <div id="titulo">
-            <h1> </h1>
+            <textarea id= "input-titulo" placeholder="Digite o título da tarefa"></textarea>
         </div><!--titulo-->
         <div id = "descricao">
-            <p> </p>
+            <textarea id="input-descricao" placeholder="Digite a descrição da tarefa"></textarea>
         </div><!--descricao-->
         <button id="btn-adicionar">Adicionar</button>
     </div><!--formulario-->
     <ul id="lista-tarefas">
     </ul><!--tarefas-->
     
+        <script src="app.js"></script>
 </body>
 </html>

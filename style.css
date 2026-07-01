@@ -1,0 +1,18 @@
+
+*{
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+
+}
+#btn-adicionar{
+    background-color: aqua;
+    padding: 20px 40px;
+    border-style: none;
+    border-radius: 30px;
+    font-size: 20px;
+}
+.concluido{
+    text-decoration:line-through;
+    opacity: 0.5;
+}
