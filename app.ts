@@ -54,6 +54,15 @@ function renderizar(): void{
 
         });
     }
+
+    const botaoExcluir = document.querySelectorAll(".btn-excluir");
+    for(let i = 0; i < botaoExcluir.length; i++){
+    const botao = botaoExcluir[i] as HTMLButtonElement;
+    botao.addEventListener("click", () => { 
+        listaTarefas.splice(i, 1); //removendo a tarefa da lista
+        renderizar(); //atualizando a lista
+    })
+}
 };
 function adicionarTarefa(): void{
     const tituloTexto = inputTitulo.value.trim();//estou usando o trim para remover espaços em branco no início e no final do título
@@ -71,11 +80,4 @@ function adicionarTarefa(): void{
     console.log(listaTarefas);
 }
 
-const botaoExcluir = document.querySelectorAll(".btn-excluir");
-for(let i = 0; i < botaoExcluir.length; i++){
-    const botao = botaoExcluir[i] as HTMLButtonElement;
-    botao.addEventListener("click", () => { 
-        listaTarefas.splice(i, 1); //removendo a tarefa da lista
-        renderizar(); //atualizando a lista
-    })
-}
+renderizar();
