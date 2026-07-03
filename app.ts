@@ -16,6 +16,10 @@ const inputDescricao = document.getElementById("input-descricao") as HTMLTextAre
 const inputBotaoAdicionar = document.getElementById("btn-adicionar") as HTMLInputElement;
 
 let listaTarefas: tarefa[] = [];
+    const dadosSalvos = localStorage.getItem("listaTarefas");
+    if(dadosSalvos){
+        listaTarefas = JSON.parse(dadosSalvos);// estou verificando se existe alguma tarefa salva no localStorage, se sim, ele vai retornar a lista de tarefas, se não, ele vai criar uma lista vazia
+    }
 const listaElemento = document.getElementById("lista-tarefas") as HTMLUListElement;
 
 inputBotaoAdicionar.addEventListener("click", () =>  { //usando para verificar se o botão adicionar foi clicado
@@ -23,6 +27,8 @@ inputBotaoAdicionar.addEventListener("click", () =>  { //usando para verificar s
 })
 
 function renderizar(): void{
+    localStorage.setItem("listaTarefas", JSON.stringify(listaTarefas));  //salvando a lista de tarefas, impedindo que suma ao atualizar a página
+
     listaElemento.innerHTML = "";
     for(let i = 0; i < listaTarefas.length; i++){
         const tarefaAtual = listaTarefas[i];
