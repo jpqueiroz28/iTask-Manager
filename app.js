@@ -37,6 +37,7 @@ function renderizar() {
         <!--estou usandoo o data-index para fazer a identação do checkbox-->
         <h3 ${EstiloRisco}>${tarefaAtual.titulo}</h3>
         <p>${tarefaAtual.descricao}</p>
+        <small>Criado em: ${new Date(tarefaAtual.date).toLocaleString("pt-BR")}</small>
         <button class="btn-excluir" data-index="${i}">Excluir</button>
     </li>
 `;

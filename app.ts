@@ -16,7 +16,7 @@ const inputDescricao = document.getElementById("input-descricao") as HTMLTextAre
 const inputBotaoAdicionar = document.getElementById("btn-adicionar") as HTMLInputElement;
 
 let listaTarefas: tarefa[] = [];
-    const dadosSalvos = localStorage.getItem("listaTarefas");
+const dadosSalvos = localStorage.getItem("listaTarefas");
     if(dadosSalvos){
         listaTarefas = JSON.parse(dadosSalvos);// estou verificando se existe alguma tarefa salva no localStorage, se sim, ele vai retornar a lista de tarefas, se não, ele vai criar uma lista vazia
     }
@@ -39,6 +39,7 @@ function renderizar(): void{
         <!--estou usandoo o data-index para fazer a identação do checkbox-->
         <h3 ${EstiloRisco}>${tarefaAtual.titulo}</h3>
         <p>${tarefaAtual.descricao}</p>
+        <small>Criado em: ${new Date(tarefaAtual.date).toLocaleString("pt-BR")}</small>
         <button class="btn-excluir" data-index="${i}">Excluir</button>
     </li>
 `;
