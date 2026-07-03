@@ -19,6 +19,36 @@ let listaTarefas: tarefa[] = [];
 const listaElemento = document.getElementById("lista-tarefas") as HTMLUListElement;
 
 inputBotaoAdicionar.addEventListener("click", () =>  { //usando para verificar se o botão adicionar foi clicado
+    adicionarTarefa();
+})
+
+function renderizar(): void{
+    listaElemento.innerHTML = "";
+    for(let i = 0; i < listaTarefas.length; i++){
+        const tarefaAtual = listaTarefas[i];
+        const EstiloRisco = tarefaAtual.status ? "style='text-decoration: line-through;'" : ""; //criei uma constante que verifica se a tarefa foi concluida, se a resposta for true, ele coloca um risco na tarefa, se for false, ignora o risco.
+        listaElemento.innerHTML += `
+    <li>
+        <input type="checkbox" class="checkbox-concluir" data-index="${i}" ${tarefaAtual.status ? "checked" : ""}>    
+        <!--estou usandoo o data-index para fazer a identação do checkbox-->
+        <h3 ${EstiloRisco}>${tarefaAtual.titulo}</h3>
+        <p>${tarefaAtual.descricao}</p>
+    </li>
+`;
+    }
+
+    const checkboxes = document.querySelectorAll(".checkbox-concluir");//criando um array com os checkboxes da lista de tarefas
+    for(let i = 0; i < checkboxes.length; i++){
+        const checkbox = checkboxes[i] as HTMLInputElement;
+        checkbox.addEventListener("change", (evento) => {
+            listaTarefas[i].status = checkbox.checked;
+
+            renderizar();
+
+        });
+    }
+};
+function adicionarTarefa(): void{
     const tituloTexto = inputTitulo.value.trim();//estou usando o trim para remover espaços em branco no início e no final do título
     const descricaoTexto = inputDescricao.value.trim();
 
@@ -32,18 +62,4 @@ inputBotaoAdicionar.addEventListener("click", () =>  { //usando para verificar s
     inputTitulo.value = "";
     inputDescricao.value = "";
     console.log(listaTarefas);
-
-})
-
-function renderizar(): void{
-    listaElemento.innerHTML = "";
-    for(let i = 0; i < listaTarefas.length; i++){
-        const tarefaAtual = listaTarefas[i];
-        listaElemento.innerHTML += `
-    <li>
-        <h3>${tarefaAtual.titulo}</h3>
-        <p>${tarefaAtual.descricao}</p>
-    </li>
-`;
-    }
-};
+}
