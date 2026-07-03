@@ -33,6 +33,7 @@ function renderizar(): void{
         <!--estou usandoo o data-index para fazer a identação do checkbox-->
         <h3 ${EstiloRisco}>${tarefaAtual.titulo}</h3>
         <p>${tarefaAtual.descricao}</p>
+        <button class="btn-excluir" data-index="${i}">Excluir</button>
     </li>
 `;
     }
@@ -53,7 +54,7 @@ function adicionarTarefa(): void{
     const descricaoTexto = inputDescricao.value.trim();
 
     if(tituloTexto === ""){
-        alert("Digite um titulo para a tarefa");
+        alert("Digite um título para a tarefa");
         return;
     }
     const novaTarefa = new tarefa(tituloTexto, descricaoTexto);
@@ -62,4 +63,13 @@ function adicionarTarefa(): void{
     inputTitulo.value = "";
     inputDescricao.value = "";
     console.log(listaTarefas);
+}
+
+const botaoExcluir = document.querySelectorAll(".btn-excluir");
+for(let i = 0; i < botaoExcluir.length; i++){
+    const botao = botaoExcluir[i] as HTMLButtonElement;
+    botao.addEventListener("click", () => { 
+        listaTarefas.splice(i, 1); //removendo a tarefa da lista
+        renderizar(); //atualizando a lista
+    })
 }
