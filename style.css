@@ -1,0 +1,121 @@
+
+*{
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    background-color: rgb(255, 255, 255)
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    background-color:rgb(255, 255, 255);
+    padding: 20px;
+    margin: 0 auto;
+    gap: 30px;
+}
+.container h1{
+    text-align: center;
+    color: rgb(168, 127, 171);
+}
+.formulario{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+textarea{
+    border-style: solid;
+    border-radius: 20px;
+    padding: 10px 50px;
+    resize:none;
+    width: 100%;
+    font-size: 20px;
+    background-color: white;
+    border-color: rgb(168, 127, 171);
+}
+#btn-adicionar{
+    background-color: rgb(165, 196, 255);
+    color: rgb(93, 72, 216);
+    padding: 20px 40px;
+    border-style: none;
+    border-radius: 20px;
+    font-size: 20px;
+    transition: 1s;
+}
+#btn-adicionar:hover{
+    cursor: pointer;
+
+    box-shadow: 0px 0px 10px rgb(174, 104, 255);
+    transform: scale(1.1);
+
+}
+#lista-tarefas {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: rgb(118, 22, 114);
+    color: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0px 0px 20px rgb(174, 104, 255);
+}
+#lista-tarefas li{
+    background-color:rgb(154, 86, 150);
+    padding: 15px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgb(174, 104, 255);
+}
+#lista-tarefas li h3{
+    font-size: 30px;
+    font-style: oblique;
+    background-color: rgb(154, 86, 150);
+    color: rgb(53, 2, 53);
+    padding: 5px
+}
+#lista-tarefas li p{
+    background-color: rgb(154, 86, 150);
+    padding: 5px;
+    font-size: 20px;
+}
+#lista-tarefas li small{
+    background-color: rgb(154, 86, 150);
+    padding: 5px;
+    color: rgb(53, 2, 53);
+
+}
+#lista-tarefas li button{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 10px white;
+    display: block;
+    margin: 0 auto;
+    color: rgb(53, 2, 53);
+    transition: 1s;
+    border-style:none;
+    border-radius: 10px;
+    padding: 4px;
+    font-weight: bold; 
+}
+#lista-tarefas li button:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 10px red;
+    transform: scale(1.15);
+}
+#lista-tarefas li h3.riscado{
+    text-decoration: line-through;
+    color: rgba(53, 2, 53, 0.327);
+    padding: 10px;
+}
+input [type=checkbox]{
+    display:flex;
+    cursor: pointer;
+    accent-color: white;
+}
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+        gap: 15px;   
+    }
+}
